@@ -1,20 +1,19 @@
+/* eslint-disable no-unused-vars */
 import CardProduct from "../components/Fragments/CardProduct";
+import products from "../utils/products";
 
 function ProductPage() {
     return (
-        <div className="flex justify-center py-5">
-            <CardProduct>
-                <CardProduct.CardHeader image="/images/product1.jpg" />
-                <CardProduct.CardBody type="Sepatu Baru">Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem repellat velit voluptatem beatae natus consequatur dolorem nostrum amet minus incidunt maiores quisquam, enim quibusdam impedit! Vel provident debitis inventore neque?</CardProduct.CardBody>
-                <CardProduct.CardFooter price="Rp.1.000.000" />
-            </CardProduct>
-            <CardProduct>
-                <CardProduct.CardHeader image="/images/product1.jpg" />
-                <CardProduct.CardBody type="Sepatu Baru">Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem repellat velit voluptatem beatae natus consequatur dolorem nostrum amet minus incidunt maiores quisquam, enim quibusdam impedit! Vel provident debitis inventore neque?</CardProduct.CardBody>
-                <CardProduct.CardFooter price="Rp.1.000.000" />
-            </CardProduct>
+        <div className="flex justify-center py-5 flex-wrap">
+            {products.map((product) => (
+                <CardProduct key={product.id} >
+                    <CardProduct.CardHeader image={product.image} />
+                    <CardProduct.CardBody type={product.name}>{product.description}</CardProduct.CardBody>
+                    <CardProduct.CardFooter price={product.price} />
+                </CardProduct>
+            ))}
         </div>
-    )
+    );
 }
 
 export default ProductPage;
