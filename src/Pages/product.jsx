@@ -23,11 +23,7 @@ function ProductPage() {
 
     function handleAddToCart(id) {
         if (cart.find((item) => item.id === id)) {
-            setCart(
-                cart.map((item) =>
-                    item.id === id ? { ...item, qty: item.qty + 1 } : item
-                )
-            );
+            setCart(cart.map((item) => item.id === id ? { ...item, qty: item.qty + 1 } : item));
         } else {
             setCart([
                 ...cart,
@@ -63,7 +59,7 @@ function ProductPage() {
                             <tr>
                                 <th>Product</th>
                                 <th>Price</th>
-                                <th>Quantity</th>
+                                <th>Qty</th>
                                 <th>Total</th>
                             </tr>
                         </thead>
@@ -82,7 +78,7 @@ function ProductPage() {
                         </tbody>
                     </table>
                 </div>
-            </div >
+            </div>
         </>
     );
 }
