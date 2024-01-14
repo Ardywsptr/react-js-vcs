@@ -1,6 +1,7 @@
 /* eslint-disable no-unused-vars */
 import Button from "../components/Elements/Button";
 import CardProduct from "../components/Fragments/CardProduct";
+import Counter from "../components/Fragments/Counter";
 import products from "../utils/products";
 
 const email = localStorage.getItem("email");
@@ -27,6 +28,7 @@ function ProductPage() {
                     </CardProduct>
                 ))}
             </div>
+            <Counter></Counter>
         </>
     );
 }
