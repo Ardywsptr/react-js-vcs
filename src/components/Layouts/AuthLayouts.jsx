@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 function AuthLayouts({ children, title, type }) {
 
-    const linkText = type === "login" ? "Register" : "Login";
+    const linkText = type === "login" ? " Register" : " Login";
     const linkUrl = type === "login" ? "/register" : "/login";
 
     return (

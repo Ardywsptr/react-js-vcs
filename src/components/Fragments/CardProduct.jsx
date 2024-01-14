@@ -19,11 +19,11 @@ function CardHeader({ image }) {
     )
 }
 
-function CardBody({ children, type }) {
+function CardBody({ children, name }) {
     return (
         <div className="px-5 pb-5 h-full">
             <a href="">
-                <h5 className="text-white text-xl font-semibold tracking-tight">{type}</h5>
+                <h5 className="text-white text-xl font-semibold tracking-tight">{name}</h5>
                 <p className="text-s text-white">{children}</p>
             </a>
         </div>
