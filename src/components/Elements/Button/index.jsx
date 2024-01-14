@@ -10,7 +10,7 @@ function Button({ classname = "bg-black",
         <button
             className={`h-10 px-6 font-semibold rounded-md ${classname ? classname : "bg-green-700"} text-white`}
             type={type}
-            onClick={() => { onClick() }}>
+            onClick={onClick}>
             {children ? children : "Submit"}
         </button>
     )
