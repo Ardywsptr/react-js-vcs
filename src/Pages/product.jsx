@@ -79,7 +79,7 @@ function ProductPage() {
                     </table>
                 </div>
             </div>
-            <Counter className="text-3xl font-bold text-center py-5" />
+            {/* <Counter className="text-3xl font-bold text-center py-5" /> */}
         </>
     );
 }
