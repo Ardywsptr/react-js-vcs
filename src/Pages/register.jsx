@@ -1,7 +1,7 @@
 import AuthLayouts from "../components/Layouts/AuthLayouts";
 import FormRegister from "../components/Fragments/FormRegister";
 
-function RegisterPage() {
+const RegisterPage = () => {
     return (
         <AuthLayouts title="Register" type="register" >
             <FormRegister />

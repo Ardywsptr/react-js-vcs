@@ -1,18 +1,18 @@
 /* eslint-disable no-unused-vars */
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Button from "../components/Elements/Button";
 import CardProduct from "../components/Fragments/CardProduct";
 import Counter from "../components/Fragments/Counter";
 import products from "../utils/products";
 
 const email = localStorage.getItem("email");
-function ProductPage() {
+const ProductPage = () => {
     const [cart, setCart] = useState([]);
     const [totalPrice, setTotalPrice] = useState(0);
 
     // component did mount
     useEffect(() => {
-        setCart(JSON.parse(localStorage.getItem("cart") || "[]"));
+        setCart(JSON.parse(localStorage.getItem("cart")) || []);
     }, [])
 
     // component did update
@@ -27,13 +27,13 @@ function ProductPage() {
         }
     }, [cart]);
 
-    function handleLogout() {
+    const handleLogout = () => {
         localStorage.removeItem("email");
         localStorage.removeItem("password");
         window.location.href = "/login";
     }
 
-    function handleAddToCart(id) {
+    const handleAddToCart = (id) => {
         if (cart.find((item) => item.id === id)) {
             setCart(cart.map((item) => item.id === id ? { ...item, qty: item.qty + 1 } : item));
         } else {
@@ -46,6 +46,22 @@ function ProductPage() {
             ])
         }
     }
+
+    // useRef -> reference values
+    // const cartRef = useRef(JSON.parse(localStorage.getItem("cart")) || []);
+
+    // function handleAddToCartRef(id) {
+    //     cartRef.current = [...cartRef.current, { id, qty: 1 }];
+    //     localStorage.setItem("cart", JSON.stringify(cartRef.current));
+    // }
+
+    // useRef -> Manipulasi DOM
+    const totalPriceRef = useRef(null);
+
+    useEffect(() => {
+        cart.length > 0 ? totalPriceRef.current.style.display = "table-row"
+            : totalPriceRef.current.style.display = "none";
+    }, [cart])
 
     return (
         <>
@@ -87,7 +103,8 @@ function ProductPage() {
                                     </tr>
                                 )
                             })}
-                            <tr>
+                            {/* useRef */}
+                            <tr ref={totalPriceRef}>
                                 <td colSpan={3}>
                                     <b>Total Price</b>
                                 </td>

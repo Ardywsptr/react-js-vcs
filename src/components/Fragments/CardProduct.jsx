@@ -3,7 +3,7 @@
 /* eslint-disable no-undef */
 import Button from "../Elements/Button";
 
-function CardProduct({ children }) {
+const CardProduct = ({ children }) => {
     return (
         <div className="w-full max-w-xs bg-gray-800 border border-gray-700 rounded-lg shadow m-2 flex flex-col justify-between">
             {children}
@@ -11,7 +11,7 @@ function CardProduct({ children }) {
     )
 }
 
-function CardHeader({ image }) {
+const CardHeader = ({ image }) => {
     return (
         <a href="#">
             <img src={image} alt="product" className="p-8 rounded-t-lg" />
@@ -19,7 +19,7 @@ function CardHeader({ image }) {
     )
 }
 
-function CardBody({ children, name }) {
+const CardBody = ({ children, name }) => {
     return (
         <div className="px-5 pb-5 h-full">
             <a href="">
@@ -30,7 +30,7 @@ function CardBody({ children, name }) {
     )
 }
 
-function CardFooter({ price, handleAddToCart, id }) {
+const CardFooter = ({ price, handleAddToCart, id }) => {
     return (
         <div className="flex items-center justify-between px-5 pb-5">
             <span className="text-xl font-bold text-white">{price}</span>
