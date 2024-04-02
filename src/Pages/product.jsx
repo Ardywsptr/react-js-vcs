@@ -1,5 +1,5 @@
 /* eslint-disable no-unused-vars */
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Button from "../components/Elements/Button";
 import CardProduct from "../components/Fragments/CardProduct";
 import Counter from "../components/Fragments/Counter";
@@ -7,13 +7,25 @@ import products from "../utils/products";
 
 const email = localStorage.getItem("email");
 function ProductPage() {
+    const [cart, setCart] = useState([]);
+    const [totalPrice, setTotalPrice] = useState(0);
 
-    const [cart, setCart] = useState([
-        {
-            id: 1,
-            qty: 1,
+    // component did mount
+    useEffect(() => {
+        setCart(JSON.parse(localStorage.getItem("cart") || "[]"));
+    }, [])
+
+    // component did update
+    useEffect(() => {
+        if (cart.length > 0) {
+            const sum = cart.reduce((acc, item) => {
+                const product = products.find((product) => product.id === item.id);
+                return acc + product.price * item.qty;
+            }, 0);
+            setTotalPrice(sum);
+            localStorage.setItem("cart", JSON.stringify(cart));
         }
-    ]);
+    }, [cart]);
 
     function handleLogout() {
         localStorage.removeItem("email");
@@ -75,6 +87,14 @@ function ProductPage() {
                                     </tr>
                                 )
                             })}
+                            <tr>
+                                <td colSpan={3}>
+                                    <b>Total Price</b>
+                                </td>
+                                <td>
+                                    <b>{IDR(totalPrice)}</b>
+                                </td>
+                            </tr>
                         </tbody>
                     </table>
                 </div>

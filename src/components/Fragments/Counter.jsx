@@ -15,14 +15,17 @@ class Counter extends React.Component {
         this.setState({ count: this.state.count + 1 });
     }
 
+    // perubahan terjadi ketika di awal
     componentDidMount() {
         this.setState({ count: 10 });
         console.log('componentDidMount');
     }
 
+    // perubahan terjadi ketika ada perubahan
     componentDidUpdate(prevProps, prevState) {
+        // wajib menggunakan kondisi dan prevprops dan prevstate
         if (this.state.count === 10) {
-            this.setState({ count: 0 })
+            this.setState({ count: 1 })
         }
         console.log("componentDidUpdate");
     }
