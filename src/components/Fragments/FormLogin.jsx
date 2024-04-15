@@ -11,6 +11,7 @@ const FormLogin = () => {
         window.location.href = "/product";
     }
 
+    // useRef dengan props
     const emailRef = useRef(null);
     useEffect(() => {
         emailRef.current.focus();
