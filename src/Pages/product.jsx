@@ -5,16 +5,22 @@ import CardProduct from "../components/Fragments/CardProduct";
 import Counter from "../components/Fragments/Counter";
 import products from "../utils/products";
 import getProducts from "../services/product.service";
+import { getUsername } from "../services/auth.service";
 
-const email = localStorage.getItem("email");
 const ProductPage = () => {
     const [cart, setCart] = useState([]);
     const [totalPrice, setTotalPrice] = useState(0);
     const [products, setProducts] = useState([]);
+    const [username, setUsername] = useState("");
 
     // component did mount localstorage
     useEffect(() => {
         setCart(JSON.parse(localStorage.getItem("cart")) || []);
+    }, [])
+
+    useEffect(() => {
+        const token = localStorage.getItem("token");
+        token ? setUsername(getUsername(token)) : window.location.href = "/login";
     }, [])
 
     // component did mount get API
@@ -37,7 +43,7 @@ const ProductPage = () => {
     }, [cart, products]);
 
     const handleLogout = () => {
-        localStorage.removeItem("email");
+        localStorage.removeItem("token");
         localStorage.removeItem("password");
         window.location.href = "/login";
     }
@@ -76,7 +82,7 @@ const ProductPage = () => {
     return (
         <>
             <div className="flex justify-end h-10 bg-blue-600 text-white items-center p-10">
-                {email}
+                {username}
                 <Button classname="ml-5 bg-black" onClick={handleLogout}>Logout</Button>
             </div>
             <h1 className="text-3xl font-bold text-center py-5">Products</h1>
