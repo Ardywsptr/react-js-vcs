@@ -1,10 +1,12 @@
 import { useParams } from "react-router-dom";
 import { getDetailProduct } from "../services/product.service";
 import { useEffect, useState } from "react";
+import { useLogin } from "../hooks/useLogin";
 
 const DetailProductPage = () => {
     const { productId } = useParams();
     const [product, setProduct] = useState({});
+    useLogin();
 
     useEffect(() => {
         getDetailProduct(productId, (data) => {
