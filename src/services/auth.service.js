@@ -11,6 +11,7 @@ export const login = (data, callback) => {
         })
 }
 
+// export jwt to decoded
 export const getUsername = (token) => {
     const decoded = jwtDecode(token)
     return decoded.user
