@@ -6,21 +6,17 @@ import Counter from "../components/Fragments/Counter";
 import products from "../utils/products";
 import getProducts from "../services/product.service";
 import { getUsername } from "../services/auth.service";
+import { useLogin } from "../hooks/useLogin";
 
 const ProductPage = () => {
     const [cart, setCart] = useState([]);
     const [totalPrice, setTotalPrice] = useState(0);
     const [products, setProducts] = useState([]);
-    const [username, setUsername] = useState("");
+    const username = useLogin();
 
     // component did mount localstorage
     useEffect(() => {
         setCart(JSON.parse(localStorage.getItem("cart")) || []);
-    }, [])
-
-    useEffect(() => {
-        const token = localStorage.getItem("token");
-        token ? setUsername(getUsername(token)) : window.location.href = "/login";
     }, [])
 
     // component did mount get API
