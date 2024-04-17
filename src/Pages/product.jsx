@@ -4,7 +4,7 @@ import Button from "../components/Elements/Button";
 import CardProduct from "../components/Fragments/CardProduct";
 import Counter from "../components/Fragments/Counter";
 import products from "../utils/products";
-import getProducts from "../services/product.service";
+import { getProducts } from "../services/product.service";
 import { getUsername } from "../services/auth.service";
 import { useLogin } from "../hooks/useLogin";
 
@@ -86,7 +86,7 @@ const ProductPage = () => {
                 <div className="w-3/4 flex flex-wrap">
                     {products.map((product) => (
                         <CardProduct key={product.id} >
-                            <CardProduct.CardHeader image={product.image} />
+                            <CardProduct.CardHeader image={product.image} id={product.id} />
                             <CardProduct.CardBody name={product.title}>{product.description}</CardProduct.CardBody>
                             <CardProduct.CardFooter price={USD(product.price)} handleAddToCart={handleAddToCart} id={product.id} />
                         </CardProduct>

@@ -1,6 +1,6 @@
 import { useLogin } from "../hooks/useLogin";
 
-export const ProfilePage = () => {
+const ProfilePage = () => {
     const username = useLogin();
     return (
         <div className="w-full h-screen flex justify-center items-center">
@@ -8,3 +8,5 @@ export const ProfilePage = () => {
         </div>
     )
 };
+
+export default ProfilePage;

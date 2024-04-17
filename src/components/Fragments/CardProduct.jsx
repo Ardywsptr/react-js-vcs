@@ -1,6 +1,7 @@
 /* eslint-disable react/prop-types */
 /* eslint-disable no-unused-vars */
 /* eslint-disable no-undef */
+import { Link } from "react-router-dom";
 import Button from "../Elements/Button";
 
 const CardProduct = ({ children }) => {
@@ -11,21 +12,19 @@ const CardProduct = ({ children }) => {
     )
 }
 
-const CardHeader = ({ image }) => {
+const CardHeader = ({ image, id }) => {
     return (
-        <a href="#">
+        <Link to={`/product/${id}`}>
             <img src={image} alt="product" className="p-8 rounded-t-lg h-60 w-full object-cover" />
-        </a>
+        </Link>
     )
 }
 
 const CardBody = ({ children, name }) => {
     return (
         <div className="px-5 pb-5 h-full">
-            <a href="">
-                <h5 className="text-white text-xl font-semibold tracking-tight">{name.substring(0, 20)}...</h5>
-                <p className="text-s text-white">{children.substring(0, 100)}...</p>
-            </a>
+            <h5 className="text-white text-xl font-semibold tracking-tight">{name.substring(0, 20)}...</h5>
+            <p className="text-s text-white">{children.substring(0, 100)}...</p>
         </div>
     )
 }
