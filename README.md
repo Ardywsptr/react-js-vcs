@@ -1,6 +1,6 @@
-# TAILWIND CSS
+# React JS
 
-**TAILWIND CSS** -  Ini merupakan repositori dari implementasi materi React JS yang ada pada playlist youtube channel [Vip Code Studio](https://www.youtube.com/watch?v=rNSfMxMPWqc&list=PLmF_zPV9ZcP346sttD4Vs2VROLlIp5kPz) mulai dari pertemuan 1 - 25. Dibuat sebagai backup dan dokumentasi saya pribadi untuk pembelajaran React JS
+**React JS** -  Ini merupakan repositori dari implementasi materi React JS yang ada pada playlist youtube channel [Vip Code Studio](https://www.youtube.com/watch?v=rNSfMxMPWqc&list=PLmF_zPV9ZcP346sttD4Vs2VROLlIp5kPz) mulai dari pertemuan 1 - 25. Dibuat sebagai backup dan dokumentasi saya pribadi untuk pembelajaran React JS
 
 ![Author](https://img.shields.io/badge/made%20by-Ardywsptr-blue)
 ![GitHub followers](https://img.shields.io/github/followers/Ardywsptr?style=social)
