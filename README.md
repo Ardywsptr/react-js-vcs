@@ -34,6 +34,8 @@
 * **useContext**
 * **useReducer**
 
+*Setiap materi yang di implementasi kan berada pada branch yang berbeda*
+
 <br clear="both">
 
 ## Requierement :
